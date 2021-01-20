@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>fake news prediction</title>
+  
+</head>
+<body>
+<style>
+body {
+  
+  text-align: center;
+  background : url(https://www.agilitypr.com/wp-content/uploads/2017/09/media1.png);  
+  background-size : 100% 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+ <div class="login">
+ <br>
+    
+	<h1>Fake news prediction</h1>
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+    
+    <!--<input type="text"  name="prediction"  />-->
+    <textarea name="prediction" placeholder="Enter text for prediction" required="required" rows="5" cols="50" > </textarea>
+       
+        <br>
+        <br>
+        <button type="submit" >Predict</button>
+    </form>
+
+   <br> <h3>
+   Voting Classifier predicted value : {% if prediction_text_model == '0'  %} True {% else if prediction_text_model == '1'%} False {% else %} _ {% endif %} 
+   <br>
+   <br>
+   Gaussian Classifier predicted value :  {% if prediction_text_gpc == '0'  %} True {% else %} False {% endif %}
+   <br>
+   <br>
+   Stocastic Gradient Descent with Bagging predicted value :  {% if prediction_text_sgdbag == '0'  %} True {% else %} False {% endif %}
+   <br>
+   <br>
+   Support Vectoe Machine with Bagging predicted value : {% if prediction_text_svmbag == '0'  %} True {% else %} False {% endif %}
+   <br>
+   <br></h3>
+
+ </div>
+
+
+</body>
+
+</html>
